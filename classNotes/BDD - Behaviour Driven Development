@@ -1,0 +1,33 @@
+BDD - Behaviour Driven Development
+ATDD - TDD + A (Acceptance)
+Written in plain english reffred  as gerkin syntax
+- Business User / Non-Tecnical person contribute in the tests
+- Sceanrios that demand the behaviour of the application
+BDD Cucumber Feature File - Written in Gerkin Syntax
+e.g. Feature, Scenario, Sceanrio Outline, Given, When, Then, And, Examples, Background
+
+Feature: Logon Functionality Validation
+Scenario : Validating System logon functionality for valid user
+Given user has logged in the system
+And another pre-condition (Given - And)
+When user click on the logon button
+And another action (When - And)
+Then system will verify the user authenticty
+And verified user will logged in (Then - And)
+# user not verified (not a gerkin systax)
+
+Feature File - Test Class of BDD
+sample.feature - Cucumber JVM BDD feature file
+sample.story - JBehave feature file
+
+Differences between TDD TestNG and BDD Cucumber
+			TDD 			| 			BDD
+AutoQuoteTest.java 			| autoQuoteTest.feature
+							| stepDefinition (.java where actual steps written. Map with the feature)
+TestClassName				| Feature
+Test Method					| Sceanrio
+Groups						| tags
+@BeforeMethod/Test/Class	| @Before/@After - Hook
+								@Background
+TestRunner testng.xml		| TestRunner.java
+comments - // or /			| #
