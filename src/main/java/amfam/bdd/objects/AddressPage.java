@@ -1,7 +1,6 @@
 package amfam.bdd.objects;
 
-import static amfam.bdd.common.CommonActions.*;
-
+import amfam.bdd.common.CommonActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AddressPage {
 
+	CommonActions actions;
+	
 	public AddressPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		actions = new CommonActions(driver);
 	}
 	
 	@FindBy(id = "prefill-city-state-dialog-title")
@@ -27,6 +29,6 @@ public class AddressPage {
 	WebElement startQuoteBtn;
 	
 	public void verifyAddressPageTitle(String expected) {
-		validate(titleVerifyCity, expected);
+		actions.validate(titleVerifyCity, expected);
 	}
 }
