@@ -1,16 +1,18 @@
 package amfam.bdd.objects;
 
-import static amfam.bdd.common.CommonActions.*;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import amfam.bdd.common.CommonActions;
 
 public class GetAQuotePage {
 
+	CommonActions actions;
+	
 	public GetAQuotePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		actions = new CommonActions(driver);
 	}
 	
 	@FindBy(className = "h1")
@@ -25,23 +27,23 @@ public class GetAQuotePage {
 	WebElement letsGoBtn;
 	
 	public void validateGetAQuotePageTitle(String expected) {
-		validate(getAQuotePageTitle, expected);
+		actions.validate(getAQuotePageTitle, expected);
 	}
 	
 	public void insertZipCodeField(String zip) {
-		insert(zipCoddInput, zip);
+		actions.insert(zipCoddInput, zip);
 	}
 	
 	public void clickCarLobBtn() {
-		click(carLobBtn);
+		actions.click(carLobBtn);
 	}
 	
 	public void clickHomeLobBtn() {
-		click(homeLobBtn);
+		actions.click(homeLobBtn);
 	}
 	
 	public void clickLetsGoBtn() {
-		click(letsGoBtn);
+		actions.click(letsGoBtn);
 	}
 
 }

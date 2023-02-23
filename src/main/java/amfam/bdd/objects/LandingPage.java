@@ -1,16 +1,18 @@
 package amfam.bdd.objects;
 
-import static amfam.bdd.common.CommonActions.*;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import amfam.bdd.common.CommonActions;
 
 public class LandingPage {
 
+	CommonActions actions;
+	
 	public LandingPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		actions = new CommonActions(driver);
 	}
 	
 	@FindBy(tagName = "h1")
@@ -19,10 +21,10 @@ public class LandingPage {
 	WebElement startNewQuoteBtn;
 	
 	public void validateLandingPageTitle(String expectedTitle) {
-		validate(landingPageTitle, expectedTitle);
+		actions.validate(landingPageTitle, expectedTitle);
 	}
 	
 	public void clickStartNewQuoteBtn() {
-		click(startNewQuoteBtn);
+		actions.click(startNewQuoteBtn);
 	}
 }

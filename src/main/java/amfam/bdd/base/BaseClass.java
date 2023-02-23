@@ -26,12 +26,6 @@ public class BaseClass{
 	ReadProperties envVar = new ReadProperties();
 	
 	public void setUpDriver(String browserName) {
-		//Enum example
-		//String browserName = envVar.getProperty(getString(browser));
-		//String browserName = envVar.getProperty(browser.name());
-		
-		//IConstant interface example
-		//String browserName = envVar.getProperty(BROWSER);
 		String url = envVar.getProperty(URL);
 		long pageLoadWait = envVar.getNumProperty(PAGELOAD_WAIT);
 		long implicitWait = envVar.getNumProperty(IMPLECIT_WAIT);
