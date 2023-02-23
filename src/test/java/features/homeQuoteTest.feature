@@ -1,5 +1,5 @@
 @exclude
-Feature: Title of your feature - Home Quote
+Feature: Title of your feature - Home Quote UI
   I want to use this template for my feature file
 
   @tag1
