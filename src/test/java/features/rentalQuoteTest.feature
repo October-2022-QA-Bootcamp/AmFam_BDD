@@ -17,7 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 @exclude
-Feature: Title of your feature
+Feature: Title of your feature - Rental
   I want to use this template for my feature file
 
   @tag1
