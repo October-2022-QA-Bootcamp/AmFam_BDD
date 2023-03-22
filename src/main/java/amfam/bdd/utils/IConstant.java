@@ -18,4 +18,7 @@ public interface IConstant {
 	String PASSED = "Test PASSED";
 	String FAILED = "Test FAILED";
 	String SKIPPED = "Test SKIPPED";
+	
+	String EXCEL_PATH = "excelPath";
+	String EXCEL_SHEET = "excelSheet";
 }

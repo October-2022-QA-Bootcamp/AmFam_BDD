@@ -2,6 +2,7 @@ package amfam.bdd.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -9,11 +10,14 @@ import org.openqa.selenium.safari.SafariDriver;
 import static amfam.bdd.utils.IConstant.*;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 import amfam.bdd.objects.AddressPage;
 import amfam.bdd.objects.GetAQuotePage;
 import amfam.bdd.objects.LandingPage;
 import amfam.bdd.utils.Constant;
+import amfam.bdd.utils.ExcelUtils;
 import amfam.bdd.utils.ReadProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -23,7 +27,9 @@ public class BaseClass{
 	public static LandingPage landingPage;
 	public static GetAQuotePage getAQuotePage;
 	public static AddressPage addressPage;
+	
 	ReadProperties envVar = new ReadProperties();
+	public ExcelUtils utils = new ExcelUtils(envVar.getProperty(EXCEL_PATH), envVar.getProperty(EXCEL_SHEET));
 	
 	public void setUpDriver(String browserName) {
 		String url = envVar.getProperty(URL);
@@ -48,7 +54,9 @@ public class BaseClass{
 		switch (driverName) {
 		case CHROME:
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(options);
 			break;
 		case FIREFOX:
 			WebDriverManager.firefoxdriver().setup();
@@ -71,6 +79,10 @@ public class BaseClass{
 	
 	public void tearUp() {
 		driver.quit();
+	}
+	
+	public List<Map<String, String>> getData(){
+		return utils.getMapDataList();
 	}
 	
 	@SuppressWarnings("unused")
