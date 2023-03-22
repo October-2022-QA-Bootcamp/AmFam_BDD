@@ -17,7 +17,6 @@ public class Hook {
 		baseClass.setUpDriver(envVar.getProperty(BROWSER));
 	}
 	
-	
 	@After
 	public void exitingDriver() {
 		baseClass.tearUp();
