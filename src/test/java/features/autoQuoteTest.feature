@@ -28,3 +28,18 @@ Background:
     |'54114'|
     |'54113'|
     
+  @data-provider-excel
+  Scenario Outline: Auto Quote with <zipCode>
+    Given validating landing page title
+    When click start quote button
+    Then validate get quote page title
+    When insert zipcode <zipCode>
+    And click car lob button
+    And click lets go button
+    Then verify address page title
+    Examples:
+    |zipCode|
+    |"zip1"|
+    |"zip2"|
+    |"zip3"|
+    

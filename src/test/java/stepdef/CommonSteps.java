@@ -30,6 +30,10 @@ public class CommonSteps extends BaseClass{
 
 	@When("insert zipcode {string}")
 	public void insert_zipcode(String zipcode) {
-		getAQuotePage.insertZipCodeField(zipcode);
+		char appenderChar = zipcode.charAt(zipcode.length()-1);
+		int appender = Integer.parseInt(String.valueOf(appenderChar)) -1;
+		String zip = getData().get(appender).get(zipcode);
+		Logs.log("--------> Zip Code is : "+zip);
+		getAQuotePage.insertZipCodeField(zip);
 	}
 }

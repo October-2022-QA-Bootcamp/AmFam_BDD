@@ -5,7 +5,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(	tags = "@smoke and not @exclude",
+@CucumberOptions(	tags = "@data-provider-excel",
 					features = {"src/test/java/features/"},
 					glue = {"amfam.bdd.base","stepdef"},
 					monochrome = false,
